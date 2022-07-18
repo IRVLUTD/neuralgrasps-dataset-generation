@@ -1,0 +1,8 @@
+003_cracker_box
+005_tomato_soup_can
+006_mustard_bottle
+007_tuna_fish_can
+008_pudding_box
+009_gelatin_box
+010_potted_meat_can
+021_bleach_cleanser
