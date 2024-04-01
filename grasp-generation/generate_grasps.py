@@ -39,12 +39,12 @@ parser.add_argument('--relax_fingers',
 
 parser.add_argument('-ds', '--dataset', type=str, default='ycb', help="dataset name")
 parser.add_argument('-s', '--max_steps', type=int, default=0, help="Max search steps per object")
-parser.add_argument('-g', '--max_grasps', type=int, default=0, help="Max best grasps per object")
+parser.add_argument('-g', '--max_grasps', type=int, default=0, help="KEEP IT ZERO SINCE WE ARE NOT USING IT (Max best grasps per object)")
 
 parser.add_argument('-r', '--gripper', type=str, default='fetch_gripper', help="robot gripper")
 parser.add_argument('--num_grasps', type=int, default=2500, help="desired number of grasps")
-parser.add_argument('--planner', type=str, default="simann", help="grasp planning optimization algorithm. Options: simann, multi")
-parser.add_argument('--energy', type=str, default="CONTACT_ENERGY", help="grasp planning search energy. Options: GUIDED_POTENTIAL_QUALITY_ENERGY, CONTACT_ENERGY")
+# parser.add_argument('--planner', type=str, default="simann", help="grasp planning optimization algorithm. Options: simann, multi")
+# parser.add_argument('--energy', type=str, default="CONTACT_ENERGY", help="grasp planning search energy. Options: GUIDED_POTENTIAL_QUALITY_ENERGY, CONTACT_ENERGY")
 
 
 def main(args):

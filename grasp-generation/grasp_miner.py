@@ -70,10 +70,10 @@ class GraspMiner:
                 gripper = collision['gripper']
             
             grasps_gripper_all = [] # Tmp list to store the grasps sepcific to a gripper (robot_name)
-            
+            total_plans = 0 # counter to store total number of plans (grasps) generated so far
             # Repeatedly plan and select *good quality* grasps until the desired number of
             # grasps is met.
-            while len(grasps_gripper_all) < self._NUM_GRASPS:
+            while total_plans < self._NUM_GRASPS:
                 scene = GraspitScene(self._process.graspit, robot_name, object_name, gripper)
                 # plan grasps with a standard procedure
                 plans = scene.planGrasps(max_steps=self._max_steps)
@@ -83,8 +83,10 @@ class GraspMiner:
                     dict(approach=False, auto_open=True, full_open=True),
                     dict(approach=True, auto_open=True, full_open=False),
                     dict(approach=True, auto_open=True, full_open=True)
-                )
-                print("[Miner] robot: {}, collision: {} | PlanGrasps generated {} grasps".format(robot_name, collision, len(plans)))
+                )                
+                # print("[Miner] robot: {}, | PlanGrasps generated {} grasps".format(robot_name, len(plans)))
+                # print("[Miner] robot: {}, | Iteration Stage:  current {} plans out of total={}".format(robot_name, total_plans, self._NUM_GRASPS))
+                total_plans += len(plans)
 
                 grasps_to_save = []
                 for plan in plans:
@@ -96,13 +98,13 @@ class GraspMiner:
                         if grasp is not None:
                             grasps_to_save.append(grasp)
                 
-                print("[Miner] robot: {}, collision: {} | Total {} grasps selected from plans".format(robot_name, collision,len(grasps_to_save)))
+                # print("[Miner] robot: {} | Total {} grasps selected from plans at this iteration".format(robot_name, len(grasps_to_save)))
                 
                 # [OPTIONAL] sort by quality
-                grasps_to_save.sort(key=lambda g: g['quality'], reverse=True)
+                # grasps_to_save.sort(key=lambda g: g['quality'], reverse=True)
                 # cut best grasps
-                if self._max_grasps > 0:
-                    grasps_to_save = grasps_to_save[:self._max_grasps]
+                # if self._max_grasps > 0:
+                    # grasps_to_save = grasps_to_save[:self._max_grasps]
 
                 # GraspIt has a tendency to squeeze the fingers even
                 # they aren't in contact with an object.
@@ -121,10 +123,10 @@ class GraspMiner:
                 #                 grasps[i]['dofs'] = tuple(dofs)
 
                 grasps_gripper_all.extend(grasps_to_save)
-                print("[Miner] robot: {}, collision: {} | Adding to grasps_gripper_all: {} grasps".format(robot_name, collision, len(grasps_gripper_all)))
+                # print("[Miner] robot: {}, | Adding to grasps_gripper_all: {} grasps".format(robot_name, len(grasps_gripper_all)))
                 # Save the current progress (over-write the existing file)
                 if self._saver:
-                    self._saver(object_name, grasps_gripper_all, robot_name, str(self._NUM_GRASPS))
+                    self._saver(object_name, grasps_gripper_all, robot_name, str(self._NUM_GRASPS), str(total_plans))
             
             # Append all the selected grasps for the (object, gripper) pair to the global list
             all_grasps.append((object_name, robot_name, grasps_gripper_all))

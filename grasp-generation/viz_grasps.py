@@ -60,12 +60,17 @@ def main(args):
     gripper = args.gripper
     path_out = args.path_out
     body = models[0]
+    is_refined = False
+
+    grasps_prefix = 'refined_' if is_refined else ''
     
     print("Visualizing {} grasps for {} robot gripper".format(body, gripper))
 
-    grasps_filename = os.path.join(path_out, 'refined_{}-{}.json'.format(
-        body, 
-        gripper))
+    grasps_filename = os.path.join(path_out, grasps_prefix + '{}-{}.json'.format(
+        gripper, 
+        body))
+    
+    print(grasps_filename)
     
     if os.path.exists(grasps_filename):
         with open(grasps_filename, 'r') as grasps_file:
@@ -88,7 +93,7 @@ def main(args):
         for i, grasp in enumerate(body_grasps):
             scene.grasp(grasp['pose'], grasp['dofs'])
             print("grasp-number: {}".format(i))
-            time.sleep(5.0)
+            time.sleep(1.0)
 
 
 if __name__ == '__main__':

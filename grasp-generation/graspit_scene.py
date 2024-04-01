@@ -11,7 +11,7 @@ class GraspitScene:
 
     def __init__(self, graspit, robot, body, collision_object=None):
         default_pose = Pose()
-        default_pose.position.y = 0.5 # does not matter that much!
+        default_pose.position.y = 0 # does not matter that much!
         default_pose.orientation.w = 1
 
         graspit.clearWorld()
@@ -89,16 +89,19 @@ class GraspitScene:
             energy_vals  = [0,0,0]
             for i, energy_t in enumerate(energy_types):
                 energy_vals[i] = graspit.computeEnergy(energy_t)
-            
-            # if True or (quality.result == 0 and quality.epsilon > -1):
-            if (quality.result == 0 and quality.epsilon > -1):
-            # if (quality.result == 0):
+
+            # if (quality.result == 0 and quality.epsilon > -1):
+            if (quality.result == 0):
                 # print("Good Grasp!")
                 response = graspit.getRobot()
-                robot = response.robot
-                # grasp = grasp_from_robot_state(robot, quality, body, kinematics)
+                robot = response.robot                
                 grasp = grasp_from_robot_state(robot, quality, self._body, kinematics)
-                
+
+                # Logging the energy values as a part of the grasp
+                grasp['potential_quality_energy'] = energy_vals[0].energy
+                grasp['guided_potential_quality_energy'] = energy_vals[1].energy
+                grasp['contact_energy'] = energy_vals[2].energy
+
                 if self._collision_object:
                     distances = [graspit.getDistance(i,self._collision_object_id).distance for i in self._robot_ids]
                     distances.extend([graspit.getDistance(i,self._body_id).distance for i in self._robot_ids])
