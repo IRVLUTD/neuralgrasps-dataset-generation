@@ -147,16 +147,28 @@ The `/mnt/Data/ycb-objects/ycb-tools/models/ycb/` contains the ycb object folder
 
 Please consider citing the paper if it helps in your work.
 
+MultiGripperGrasps:
 ```bibtex
-@misc{https://doi.org/10.48550/arxiv.2207.02959,
-      doi = {10.48550/ARXIV.2207.02959},
-      url = {https://arxiv.org/abs/2207.02959},
-      author = {Khargonkar, Ninad and Song, Neil and Xu, Zesheng and Prabhakaran, Balakrishnan and Xiang, Yu},
-      title = {NeuralGrasps: Learning Implicit Representations for Grasps of Multiple Robotic Hands},       
-      publisher = {arXiv},
-      year = {2022},          
-      copyright = {Creative Commons Attribution 4.0 International}
-      }
+@misc{murrilo2024multigrippergrasp,
+      title={MultiGripperGrasp: A Dataset for Robotic Grasping from Parallel Jaw Grippers to Dexterous Hands}, 
+      author={Luis Felipe Casas Murrilo and Ninad Khargonkar and Balakrishnan Prabhakaran and Yu Xiang},
+      year={2024},
+      eprint={2403.09841},
+      archivePrefix={arXiv},
+      primaryClass={cs.RO},
+}
+```
+
+NeuralGrasps:
+```bibtex
+@inproceedings{khargonkar2023neuralgrasps,
+  title={Neuralgrasps: Learning implicit representations for grasps of multiple robotic hands},
+  author={Khargonkar, Ninad and Song, Neil and Xu, Zesheng and Prabhakaran, Balakrishnan and Xiang, Yu},
+  booktitle={Conference on Robot Learning},
+  pages={516--526},
+  year={2023},
+  organization={PMLR}
+}
 ```
 
 # Acknowledgements
