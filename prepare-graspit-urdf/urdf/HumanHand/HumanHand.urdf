@@ -1,5 +1,9 @@
 <?xml version='1.0' encoding='ASCII'?>
 <robot name="HumanHand20DOF">
+  <material name="Skin">
+    <color rgba=".98 .9 .85 1"/>
+  </material>
+
   <link name="base_link"/>
   <joint name="base_link_palm" type="fixed">
     <origin rpy="0 0.00000000 0.00000000"/>
@@ -11,6 +15,7 @@
       <geometry>
         <mesh filename="./meshes/palm.stl" scale="0.00100000 0.00100000 0.00100000"/>
       </geometry>
+      <material name="Skin"/>
     </visual>
     <inertial>
       <mass value="0.15000000"/>
@@ -23,6 +28,7 @@
       <geometry>
         <mesh filename="./meshes/index1.stl" scale="0.00100000 0.00100000 0.00100000"/>
       </geometry>
+      <material name="Skin"/>
     </visual>
     <inertial>
       <mass value="0.15000000"/>
@@ -36,6 +42,7 @@
       <geometry>
         <mesh filename="./meshes/index2.stl" scale="0.00100000 0.00100000 0.00100000"/>
       </geometry>
+      <material name="Skin"/>
     </visual>
     <inertial>
       <mass value="0.15000000"/>
@@ -48,6 +55,7 @@
       <geometry>
         <mesh filename="./meshes/index3.stl" scale="0.00100000 0.00100000 0.00100000"/>
       </geometry>
+      <material name="Skin"/>
     </visual>
     <inertial>
       <mass value="0.15000000"/>
@@ -115,6 +123,7 @@
       <geometry>
         <mesh filename="./meshes/mid1.stl" scale="0.00100000 0.00100000 0.00100000"/>
       </geometry>
+      <material name="Skin"/>
     </visual>
     <inertial>
       <mass value="0.15000000"/>
@@ -128,6 +137,7 @@
       <geometry>
         <mesh filename="./meshes/mid2.stl" scale="0.00100000 0.00100000 0.00100000"/>
       </geometry>
+      <material name="Skin"/>
     </visual>
     <inertial>
       <mass value="0.15000000"/>
@@ -140,6 +150,7 @@
       <geometry>
         <mesh filename="./meshes/mid3.stl" scale="0.00100000 0.00100000 0.00100000"/>
       </geometry>
+      <material name="Skin"/>
     </visual>
     <inertial>
       <mass value="0.15000000"/>
@@ -199,11 +210,13 @@
     <parent link="mid3_joint"/>
     <child link="mid3"/>
   </joint>
+
   <link name="ring1">
     <visual>
       <geometry>
         <mesh filename="./meshes/ring1.stl" scale="0.00100000 0.00100000 0.00100000"/>
       </geometry>
+      <material name="Skin"/>
     </visual>
     <inertial>
       <mass value="0.15000000"/>
@@ -217,6 +230,7 @@
       <geometry>
         <mesh filename="./meshes/ring2.stl" scale="0.00100000 0.00100000 0.00100000"/>
       </geometry>
+      <material name="Skin"/>
     </visual>
     <inertial>
       <mass value="0.15000000"/>
@@ -229,6 +243,7 @@
       <geometry>
         <mesh filename="./meshes/ring3.stl" scale="0.00100000 0.00100000 0.00100000"/>
       </geometry>
+      <material name="Skin"/>
     </visual>
     <inertial>
       <mass value="0.15000000"/>
@@ -288,11 +303,13 @@
     <parent link="ring3_joint"/>
     <child link="ring3"/>
   </joint>
+
   <link name="pinky1">
     <visual>
       <geometry>
         <mesh filename="./meshes/pinky1.stl" scale="0.00100000 0.00100000 0.00100000"/>
       </geometry>
+      <material name="Skin"/>
     </visual>
     <inertial>
       <mass value="0.15000000"/>
@@ -306,6 +323,7 @@
       <geometry>
         <mesh filename="./meshes/pinky2.stl" scale="0.00100000 0.00100000 0.00100000"/>
       </geometry>
+      <material name="Skin"/>
     </visual>
     <inertial>
       <mass value="0.15000000"/>
@@ -318,6 +336,7 @@
       <geometry>
         <mesh filename="./meshes/pinky3.stl" scale="0.00100000 0.00100000 0.00100000"/>
       </geometry>
+      <material name="Skin"/>
     </visual>
     <inertial>
       <mass value="0.15000000"/>
@@ -377,11 +396,13 @@
     <parent link="pinky3_joint"/>
     <child link="pinky3"/>
   </joint>
+
   <link name="thumb1">
     <visual>
       <geometry>
         <mesh filename="./meshes/thumb1.stl" scale="0.00100000 0.00100000 0.00100000"/>
       </geometry>
+      <material name="Skin"/>
     </visual>
     <inertial>
       <mass value="0.15000000"/>
@@ -395,6 +416,7 @@
       <geometry>
         <mesh filename="./meshes/thumb2.stl" scale="0.00100000 0.00100000 0.00100000"/>
       </geometry>
+      <material name="Skin"/>
     </visual>
     <inertial>
       <mass value="0.15000000"/>
@@ -407,6 +429,7 @@
       <geometry>
         <mesh filename="./meshes/thumb3.stl" scale="0.00100000 0.00100000 0.00100000"/>
       </geometry>
+      <material name="Skin"/>
     </visual>
     <inertial>
       <mass value="0.15000000"/>
