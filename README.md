@@ -38,6 +38,9 @@ sudo nvidia-docker run -it --name CONTAINER_NAME --privileged --gpus all \
 
 - `CONTAINER_NAME` : a descriptive name for the container
 
+- You can mount an external folder where the code is synced to the `~/data/` inside the
+  docker env for convinience!
+
 - This will open an interactive bash session. tmux is already installed, so you can open 
   multiple terminals. Note that the tmux "prefix" is `Ctrl-b` but I have changed it to 
   `Ctrl-a`. So for example, if you need to create new window in a session, it is: 
