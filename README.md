@@ -12,7 +12,7 @@ paper.
 Graspit grasp generation is done on a python-2 environment on a Ubunut 18.04 docker image.
 
 ## Initial Setup (Docker container) for GraspIt Grasp Generation
-I am sharing the [container image](https://utdallas.box.com/s/z515hoc7qe6am4jml05wk9zw6fowdb3u) as a `[CONTAINER-NAME].tar.gz` file -- (need to extract it first) via ut-dallas box. Example container name = `img-grasp-pyb.tar.gz`.
+I am sharing the [container image](https://utdallas.box.com/s/rrg0e2lu26fhji8nnn1o05gb4j0t0ik7) as a `[CONTAINER-NAME].tar.gz` file -- (need to extract it first) via ut-dallas box. Example container name = `img-grasp-pyb.tar.gz`.
 
 Extract the `img-grasp-pyb.tar.gz` file -- this will give you a .tar archive.
 You can load this as docker image using: `sudo docker load --input img-grasp-pyb.tar`.
